@@ -78,11 +78,15 @@ PS.: Entidades do DB estão criadas, portanto, basta criar a regra de negócio. 
 
 <h1>Infra</h1>
 </br>
+
 ## Docker
-Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a imagem da API.
+Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a imagem da API. </br>
 
+![image](https://user-images.githubusercontent.com/90586912/222936202-173914e9-e760-4ef2-9b26-68cbbd1f57bf.png)
+</br>
 
-
+Em seguida crio o docker-compose.yml e faço uma nova imagem. </br>
+<strong>OBS:</strong> o SQLite é um DB local, portanto, é preciso atualizar as ENVs para apontar para a imagem do Docker. </br>
 
 
 

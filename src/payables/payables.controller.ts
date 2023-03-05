@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { PayableService } from './payables.service';
 import { PayableDto } from './dtos/payable.dto';
+import { EventPattern, MessagePattern } from '@nestjs/microservices';
 
 @Controller('payable')
 export class PayableController {
@@ -35,6 +36,14 @@ export class PayableController {
   async createPayable(@Body() dto: PayableDto) {
     console.log('dto @Post', dto);
     return this.service.createPayable(dto);
+  }
+
+  @EventPattern('payable_created')
+  @Post('batch')
+  @HttpCode(HttpStatus.OK)
+  async createPayableBatch(@Body() dto: PayableDto) {
+    console.log('dto batch @Post', dto);
+    return this.service.createPayableBatch(dto);
   }
 
   @Put(':id')

@@ -1,11 +1,16 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Recebivel, Prisma } from '@prisma/client';
+import { ClientProxy } from '@nestjs/microservices';
 import { PrismaService } from 'src/prisma.service';
 import { PayableDto } from './dtos/payable.dto';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class PayableService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    @Inject('PAYABLE') private client: ClientProxy,
+  ) {}
 
   async getAllPayables(): Promise<PayableDto[]> {
     return this.prisma.recebivel.findMany();
@@ -23,6 +28,23 @@ export class PayableService {
     return this.prisma.recebivel.create({
       data: dto,
     });
+  }
+
+  async createPayableBatch(dto: PayableDto): Promise<PayableDto> {
+    try {
+      console.log('createPayableBatch......');
+      const data = this.prisma.recebivel.create({
+        data: dto,
+      });
+      await lastValueFrom(
+        this.client.emit('payable_created', {
+          data,
+        }),
+      );
+      return data;
+    } catch (err) {
+      throw err;
+    }
   }
 
   async updatePayable(id: string, dto: PayableDto): Promise<PayableDto> {

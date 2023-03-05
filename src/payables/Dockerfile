@@ -14,8 +14,8 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN npm run build payables
 
 RUN npx prisma generate
 
-CMD [ "node", "dist/main.js" ]
+CMD [ "node", "dist/payables/main.js" ]

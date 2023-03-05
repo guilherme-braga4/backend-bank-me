@@ -77,7 +77,6 @@ PS.: Entidades do DB estão criadas, portanto, basta criar a regra de negócio. 
 </br>
 
 <h1>Infra</h1>
-</br>
 
 ## Docker
 Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a imagem da API. </br>
@@ -85,8 +84,39 @@ Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a ima
 ![image](https://user-images.githubusercontent.com/90586912/222936202-173914e9-e760-4ef2-9b26-68cbbd1f57bf.png)
 </br>
 
+## Construção do IaC utilizando Terraform
+Começo instalando a dependência de microservices do nestjs. </br>
+Criação da instância utilizando terraform (IaC) através do arquivo main.tf. </br>
+Para criar essa instância, foi criado um novo grupo de segurança, definindo regras de entrada e saída para HTTP, HTTPS e SSH.  </br>
+
+</br>
+
+![image](https://user-images.githubusercontent.com/90586912/222992287-64b48917-06b3-46f4-bb78-d58932863e21.png)</br>
+</br>
+
 Em seguida crio o docker-compose.yml e faço uma nova imagem. </br>
-<strong>OBS:</strong> o SQLite é um DB local, portanto, é preciso atualizar as ENVs para apontar para a imagem do Docker. </br>
+<strong>OBS:</strong> o SQLite é um DB local, porém, a sua instância é criada dentro da imagem do Docker. </br>
+</br>
+
+<h1>Filas e Microservice</h1>
+
+## Criação do Microservice e Processamento de Pagáveis usando Fila
+Começo instalando a dependência de microservices do nestjs. </br>
+Instalo o RabbitMQ na API e faço as configurações necessárias para integrá-lo ao serviço "payables". </br>
+Altero meu Docker Compose para gerar 3 imagens: RabbitMQ, Payable Microservice e API. </br>
+Por fim, crio a rota "/payables/batch" para conseguir processar os arquivos através da fila </br>
+
+</br>
+
+![image](https://user-images.githubusercontent.com/90586912/222968233-92f7de4a-c8cd-4bfa-a8b4-01f16bc93527.png)
+</br>
+
+</br>
+
+![image](https://user-images.githubusercontent.com/90586912/222992406-8db1b1e6-fb24-4f7d-a267-2e63dbbb5b46.png)
+</br>
+
+
 
 
 

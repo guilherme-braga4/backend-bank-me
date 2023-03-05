@@ -76,6 +76,10 @@ PS.: Entidades do DB estão criadas, portanto, basta criar a regra de negócio. 
 ![image](https://user-images.githubusercontent.com/90586912/221621498-30a77b56-f8af-4a78-9ea5-d7de78659842.png)
 </br>
 
+<h1>Infra</h1>
+</br>
+## Docker
+Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a imagem da API.
 
 
 

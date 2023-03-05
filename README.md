@@ -86,7 +86,19 @@ Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a ima
 </br>
 
 Em seguida crio o docker-compose.yml e faço uma nova imagem. </br>
-<strong>OBS:</strong> o SQLite é um DB local, portanto, é preciso atualizar as ENVs para apontar para a imagem do Docker. </br>
+<strong>OBS:</strong> o SQLite é um DB local, porém, a sua instância é criada dentro da imagem do Docker. </br>
+
+
+## Criação do Microservice
+Começo instalando a dependência de microservices do nestjs. </br>
+Instalo o RabbitMQ na API e faço as configurações necessárias para integrá-lo ao serviço "payables". </br>
+Altero meu Docker Compose para gerar 3 imagens: RabbitMQ, Payable Microservice e API. </br>
+Por fim, crio a rota "/payables/batch" para conseguir processar os arquivos através da fila </br>
+</br>
+![image](https://user-images.githubusercontent.com/90586912/222968233-92f7de4a-c8cd-4bfa-a8b4-01f16bc93527.png)
+</br>
+
+</br>
 
 
 

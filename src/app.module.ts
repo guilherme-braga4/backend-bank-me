@@ -6,7 +6,7 @@ import { PayableModule } from './payables/payables.module';
 import { AssignorModule } from './assignors/assignor.module';
 
 @Module({
-  imports: [AuthModule, PayableModule, AssignorModule],
+  imports: [AuthModule, AssignorModule],
   controllers: [],
   providers: [{ provide: APP_GUARD, useClass: JwtAuthGuard }],
 })

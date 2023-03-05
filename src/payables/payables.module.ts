@@ -15,7 +15,9 @@ import { ConfigModule } from '@nestjs/config';
         RABBIT_MQ_PAYABLE_QUEUE: Joi.string().required(),
       }),
     }),
-    RmqModule,
+    RmqModule.register({
+      name: 'PAYABLE',
+    }),
   ],
   controllers: [PayableController],
   providers: [PayableService, PrismaService],

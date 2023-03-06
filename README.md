@@ -1,3 +1,12 @@
+<h1 align="center">
+  Aprova-me (Backend)
+</h1>
+
+</br>
+<h2> 🧑🏽‍💻 Documentação Complementar</h2>
+<p>Abaixo pode ser verificado o raciocínio para a criação da api e também da infraestrutura, bem como os testes realizados utilizando o postman/logs.</p>
+
+
 ## Auth (Autenticação de um Bankmer)
 
 <strong>Login</strong> </br> 

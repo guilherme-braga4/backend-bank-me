@@ -81,6 +81,10 @@ PS.: Entidades do DB estão criadas, portanto, basta criar a regra de negócio. 
 ## Docker
 Iniciei criando os arquivos Dockerfile e dockerignore para conseguir criar a imagem da API. </br>
 
+Em seguida crio o docker-compose.yml e faço uma nova imagem. </br>
+<strong>OBS:</strong> o SQLite é um DB local, porém, a sua instância é criada dentro da imagem do Docker. </br>
+</br>
+
 ![image](https://user-images.githubusercontent.com/90586912/222936202-173914e9-e760-4ef2-9b26-68cbbd1f57bf.png)
 </br>
 
@@ -94,9 +98,15 @@ Para criar essa instância, foi criado um novo grupo de segurança, definindo re
 ![image](https://user-images.githubusercontent.com/90586912/222992287-64b48917-06b3-46f4-bb78-d58932863e21.png)</br>
 </br>
 
-Em seguida crio o docker-compose.yml e faço uma nova imagem. </br>
-<strong>OBS:</strong> o SQLite é um DB local, porém, a sua instância é criada dentro da imagem do Docker. </br>
+## Gerar um Pipeline de Deploy (EC2 & Github Actions)
+Uma vez já criada a instância do EC2, agora configuro o github através de um arquivo yml. </br>
+Nesse momento, visando segurança e boas práticas, crio os secrets dentro do Github Actions Secrets. </br>
+
+
 </br>
+
+</br>
+
 
 <h1>Filas e Microservice</h1>
 
